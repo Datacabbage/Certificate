@@ -36,7 +36,8 @@ class srCertificatePlaceholdersParser {
      */
     public function parse($text, array $placeholders)
     {
-        preg_match_all('#\[\[(.*)\]\]#', $text, $tpl_placeholders);
+        // match all non whitespace characters in [[ ]]
+        preg_match_all('/\[\[(\S*)\]\]/', $text, $tpl_placeholders);
         $replacements = array();
         foreach ($tpl_placeholders[0] as $key) {
             $replacements[] = $placeholders[$key];

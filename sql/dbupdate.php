@@ -223,3 +223,13 @@
             }
         }
      ?>
+<#18>
+<?php
+// Change data-type for longer emails
+global $ilDB;
+
+if ($ilDB->tableExists('uihkcertificate_c')) {
+    $ilDB->modifyTableColumn('uihkcertificate_c', 'value',
+        array("type" => "clob", "default"=>null, "notnull" => false));
+}
+?>
