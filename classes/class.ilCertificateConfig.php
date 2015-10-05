@@ -43,8 +43,7 @@ class ilCertificateConfig extends ActiveRecord
      * @var string
      *
      * @db_has_field        true
-     * @db_fieldtype        text
-     * @db_length           1000
+     * @db_fieldtype        clob
      */
     protected $value;
 
