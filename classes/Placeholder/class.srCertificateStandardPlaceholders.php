@@ -198,8 +198,8 @@ class srCertificateStandardPlaceholders
             'DATETIME' => $this->formatDateTime('DATETIME'),
             'TIMESTAMP' => ($utc) ? strtotime(gmdate('Y-m-d H:i:s')) : time(),
 
-            'CERT_VALID_FROM' => $this->formatDate('CERT_VALID_FROM', $cert_valid_from),
-            'CERT_VALID_TO' => $this->formatDate('CERT_VALID_TO', $cert_valid_to),
+            'CERT_VALID_FROM' => ($this->certificate->getValidFrom() == '')? $this->pl->txt('unlimited') : $this->formatDate('CERT_VALID_FROM', $cert_valid_from),
+            'CERT_VALID_TO' =>  ($this->certificate->getValidTo() == '')? $this->pl->txt('unlimited') : $this->formatDate('CERT_VALID_TO', $cert_valid_to),
             'CERT_ID' => $this->certificate->getId(),
             'CERT_TEMPLATE_PATH' => $this->certificate->getDefinition()->getType()->getCertificateTemplatesPath(),
             'COURSE_TITLE' => $course->getTitle(),
